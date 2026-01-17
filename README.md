@@ -54,15 +54,6 @@
 
 ---
 
-## 📸 截图展示 (Screenshots)
-
-*(建议你运行 App 后截图，放在这里)*
-
-| 主页 (Home) | 分类管理 (Category) | 悬浮窗 (Floating) | 编辑弹窗 (Edit) |
-|:---:|:---:|:---:|:---:|
-| ![Home](path/to/screenshot1.png) | ![Category](path/to/screenshot2.png) | ![Floating](path/to/screenshot3.png) | ![Edit](path/to/screenshot4.png) |
-
----
 
 ## 📥 
 
