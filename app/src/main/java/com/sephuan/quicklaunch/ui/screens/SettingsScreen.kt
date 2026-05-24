@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -217,13 +218,15 @@ fun SettingsScreen(onBack: () -> Unit, onAboutClick: (() -> Unit)? = null) {
             HorizontalDivider()
 
             // About
-            SettingsExpandHeader(stringResource(R.string.about), false) {}
-            ListItem(
-                headlineContent = { Text(stringResource(R.string.app_name)) },
-                supportingContent = { Text("v1.0 · MIT License") },
-                leadingContent = { Icon(Icons.Default.Info, contentDescription = null) },
-                modifier = Modifier.clickable { onAboutClick?.invoke() }
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth().clickable { onAboutClick?.invoke() }.padding(horizontal = 16.dp, vertical = 14.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(stringResource(R.string.about), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary, modifier = Modifier.weight(1f))
+                Text("v1.0", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.secondary)
+                Spacer(Modifier.width(4.dp))
+                Icon(Icons.Default.ChevronRight, contentDescription = null, tint = MaterialTheme.colorScheme.secondary, modifier = Modifier.size(20.dp))
+            }
         }
     }
 
