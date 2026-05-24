@@ -1,5 +1,10 @@
 package com.sephuan.quicklaunch.ui
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
@@ -96,12 +101,24 @@ fun MainScreen() {
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) { HomeScreen(onSettingsClick = { navController.navigate(Screen.Settings.route) }) }
-            composable(Screen.Category.route) { CategoryScreen() }
-            composable(Screen.AllApps.route) { AllAppsScreen() }
-            composable(Screen.Stats.route) { StatsScreen(onSettingsClick = { navController.navigate(Screen.Settings.route) }) }
-            composable(Screen.Settings.route) { SettingsScreen(onBack = { navController.popBackStack() }, onAboutClick = { navController.navigate(Screen.About.route) }) }
-            composable(Screen.About.route) { AboutScreen(onBack = { navController.popBackStack() }) }
+            composable(Screen.Home.route, enterTransition = { fadeIn(tween(200)) }, exitTransition = { fadeOut(tween(150)) }) { HomeScreen(onSettingsClick = { navController.navigate(Screen.Settings.route) }) }
+            composable(Screen.Category.route, enterTransition = { fadeIn(tween(200)) }, exitTransition = { fadeOut(tween(150)) }) { CategoryScreen() }
+            composable(Screen.AllApps.route, enterTransition = { fadeIn(tween(200)) }, exitTransition = { fadeOut(tween(150)) }) { AllAppsScreen() }
+            composable(Screen.Stats.route, enterTransition = { fadeIn(tween(200)) }, exitTransition = { fadeOut(tween(150)) }) { StatsScreen(onSettingsClick = { navController.navigate(Screen.Settings.route) }) }
+            composable(
+                Screen.Settings.route,
+                enterTransition = { slideInHorizontally(tween(300)) { it } },
+                exitTransition = { fadeOut(tween(200)) },
+                popEnterTransition = { fadeIn(tween(200)) },
+                popExitTransition = { slideOutHorizontally(tween(300)) { it } }
+            ) { SettingsScreen(onBack = { navController.popBackStack() }, onAboutClick = { navController.navigate(Screen.About.route) }) }
+            composable(
+                Screen.About.route,
+                enterTransition = { slideInHorizontally(tween(300)) { it } },
+                exitTransition = { fadeOut(tween(200)) },
+                popEnterTransition = { fadeIn(tween(200)) },
+                popExitTransition = { slideOutHorizontally(tween(300)) { it } }
+            ) { AboutScreen(onBack = { navController.popBackStack() }) }
         }
     }
 }
