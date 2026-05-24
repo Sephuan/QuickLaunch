@@ -1,70 +1,49 @@
 # QuickLaunch
 
----
+**QuickLaunch** 是一款高度可定制的 Android 应用快速启动器，聚合搜索、分类管理、悬浮窗、快捷磁贴于一体。
 
-
-**QuickLaunch** 是一款基于 Android 的高效辅助启动工具，旨在解决手机应用过多、查找繁琐的痛点。它不仅仅是一个启动器，更是一个高度可定制的**应用索引系统**。
-
-通过自定义别名、标签（Tags）以及强大的分类管理，配合全局悬浮窗，无论你在手机的哪个界面，都能在 1 秒内找到并启动你需要的 App。
-
-![Kotlin](https://img.shields.io/badge/Kotlin-1.9.0-blue.svg) ![Compose](https://img.shields.io/badge/Jetpack%20Compose-Material3-green.svg) ![Android](https://img.shields.io/badge/Android-15-orange.svg)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.0-blue) ![Compose](https://img.shields.io/badge/Compose-Material3-purple) ![API](https://img.shields.io/badge/API-24%2B-brightgreen) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
-## ✨ 核心功能 (Features)
+## 功能
 
-### 1. 🧠 智能搜索与自定义 (Smart Search & DIY)
-*   **自定义别名**：给 App 起个只有你懂的名字（如把“Bilibili”改名为“学习资料”）。
-*   **标签系统 (Tagging)**：给应用打上多个标签（如 `[游戏]`, `[摸鱼]`, `[办公]`），搜索标签即可找到相关应用。
-*   **多维检索**：支持搜索 应用原名、包名、自定义别名、标签。
-
-### 2. 📂 强大的分类管理 (Category Management)
-*   **默认智能分类**：内置国内主流 App 知识库，安装即自动归类（社交、支付、视频等）。
-*   **完全自定义**：支持新建、删除、重命名分类。
-*   **自由排序**：分类顺序可上下调整，应用归属可自由勾选。
-*   **便捷操作**：分类列表末尾的一键添加按钮，长按应用即可快速移除。
-
-### 3. 👻 灵动悬浮窗 (Global Floating Window)
-*   **全局呼出**：在任何界面悬浮，随时待命。
-*   **智能隐藏**：不使用时自动吸附屏幕边缘并**隐藏 2/3**，且变为半透明，绝不遮挡视线。
-*   **快速搜索**：点击展开为搜索框，启动应用后自动收起。
-*   **快捷开关**：集成 Android 系统下拉通知栏快捷开关 (Quick Settings Tile)，一键开启/关闭。
-
-### 4. 📊 智能推荐与统计 (Stats & Recommendation)
-*   **常用推荐**：主页根据算法自动推荐使用频率最高的 Top 10 应用。
-*   **使用统计**：详细记录应用的启动次数和最后启动时间，生成排行榜。
-*   **我的收藏**：支持手动置顶常用 App 到主页网格。
+| 模块 | 说明 |
+|------|------|
+| 智能搜索 | 支持应用名、包名、自定义别名、标签多维检索，评分排序 |
+| 分类管理 | 内置国内主流应用知识库，可新建/重命名/拖拽排序/管理应用归属 |
+| 悬浮搜索 | 全局悬浮球，可拖拽、自动吸附边缘半透明隐藏，点击展开搜索卡片 |
+| 快捷磁贴 | 最多 12 个自定义 QS 磁贴，直接快启指定应用，可选 14 种图标 |
+| 使用统计 | 按启动频率排行榜，支持长按编辑别名/标签/置顶 |
+| 设置中心 | 可折叠分组，语言切换（中/英），MD3 主题取色（莫奈/8 种自定义+自动轮换），沉浸模式 |
+| 通知栏搜索 | 下拉通知栏展开悬浮窗通知，输入关键词直接搜索并启动 |
 
 ---
 
-## 🛠 技术栈 (Tech Stack)
+## 技术栈
 
-本项目完全使用 **Kotlin** 编写，采用现代化的 Android 开发技术：
-
-*   **UI 框架**: [Jetpack Compose](https://developer.android.com/jetpack/compose) (Material3 Design) - 声明式 UI，代码简洁美观。
-*   **架构**: MVVM (Model-View-ViewModel) 思想。
-*   **数据存储**: `SharedPreferences` + `Gson` - 轻量级本地对象存储。
-*   **系统集成**:
-    *   `Service` & `WindowManager`: 实现全局悬浮窗。
-    *   `TileService`: 实现系统下拉栏快捷开关。
-    *   `PackageManager`: 获取本机已安装应用信息。
-*   **交互处理**:
-    *   `combinedClickable`: 处理点击与长按事件。
-    *   `detectDragGestures`: 实现悬浮窗的丝滑拖拽。
+- **Kotlin 2.0** + **Jetpack Compose Material3**
+- Navigation Compose、LifecycleService、AppCompat
+- SharedPreferences + Gson 本地存储
+- WindowManager 悬浮窗、TileService 快捷磁贴、RemoteInput 通知栏搜索
+- Coil 图标懒加载
 
 ---
 
+## 下载
 
-## 📥 
-
-**注意权限**：
-*   首次使用悬浮窗功能时，需授予 **“显示在其他应用上层”** 权限。
-*   应用会自动申请 **“获取应用列表”** 权限。
+[最新 Release](https://github.com/Sephuan/QuickLaunch/releases/latest)
 
 ---
 
-## 📄 许可证 (License)
+## 权限
 
-MIT License
+- 悬浮窗权限（显示在其他应用上层）
+- 获取应用列表（QUERY_ALL_PACKAGES）
+- 前台服务（保持悬浮窗存活）
 
-Copyright (c) 2026 Sephuan
+---
+
+## License
+
+MIT © 2026 Sephuan
