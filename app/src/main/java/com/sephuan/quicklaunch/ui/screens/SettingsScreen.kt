@@ -62,10 +62,10 @@ fun SettingsScreen(onBack: () -> Unit, onAboutClick: (() -> Unit)? = null) {
     var autoRotate by remember { mutableStateOf(settings.autoRotateColors) }
     var showTileDialog by remember { mutableIntStateOf(-1) }
 
-    var expandedLang by remember { mutableStateOf(false) }
-    var expandedTheme by remember { mutableStateOf(false) }
-    var expandedColor by remember { mutableStateOf(false) }
-    var expandedTiles by remember { mutableStateOf(false) }
+    var expandedLang by remember { mutableStateOf(true) }
+    var expandedTheme by remember { mutableStateOf(true) }
+    var expandedColor by remember { mutableStateOf(true) }
+    var expandedTiles by remember { mutableStateOf(true) }
     var visibleTileCount by remember { mutableIntStateOf(
         (0..11).count { settings.getTileSlot(it)?.packageName?.isNotEmpty() == true }.coerceAtLeast(1)
     ) }
@@ -117,6 +117,7 @@ fun SettingsScreen(onBack: () -> Unit, onAboutClick: (() -> Unit)? = null) {
                         selected = themeMode.name,
                         onSelect = { key -> themeMode = ThemeMode.valueOf(key); settings.themeMode = ThemeMode.valueOf(key) }
                     )
+                    SettingsSwitchItem(stringResource(R.string.immersive_mode), stringResource(R.string.immersive_desc), immersive) { immersive = it; settings.immersiveMode = it }
                 }
             }
             HorizontalDivider()
@@ -146,10 +147,6 @@ fun SettingsScreen(onBack: () -> Unit, onAboutClick: (() -> Unit)? = null) {
                     }
                 }
             }
-            HorizontalDivider()
-
-            // Immersive
-            SettingsSwitchItem(stringResource(R.string.immersive_mode), stringResource(R.string.immersive_desc), immersive) { immersive = it; settings.immersiveMode = it }
             HorizontalDivider()
 
             // Quick Tiles
