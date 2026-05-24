@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Category
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Apps
 import androidx.compose.material.icons.outlined.BarChart
@@ -30,6 +31,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sephuan.quicklaunch.R
+import com.sephuan.quicklaunch.ui.screens.AboutScreen
 import com.sephuan.quicklaunch.ui.screens.AllAppsScreen
 import com.sephuan.quicklaunch.ui.screens.CategoryScreen
 import com.sephuan.quicklaunch.ui.screens.HomeScreen
@@ -42,6 +44,7 @@ sealed class Screen(val route: String, val titleRes: Int, val selectedIcon: Imag
     data object AllApps : Screen("all_apps", R.string.app_library, Icons.Filled.Apps, Icons.Outlined.Apps)
     data object Stats : Screen("stats", R.string.stats, Icons.Filled.BarChart, Icons.Outlined.BarChart)
     data object Settings : Screen("settings", R.string.settings, Icons.Filled.Settings, Icons.Outlined.Settings)
+    data object About : Screen("about", R.string.about, Icons.Filled.Info, Icons.Filled.Info)
 }
 
 @Composable
@@ -53,7 +56,7 @@ fun MainScreen() {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
-    val showBottomBar = currentRoute != Screen.Settings.route
+    val showBottomBar = currentRoute != Screen.Settings.route && currentRoute != Screen.About.route
 
     Scaffold(
         bottomBar = {
@@ -97,7 +100,8 @@ fun MainScreen() {
             composable(Screen.Category.route) { CategoryScreen() }
             composable(Screen.AllApps.route) { AllAppsScreen() }
             composable(Screen.Stats.route) { StatsScreen(onSettingsClick = { navController.navigate(Screen.Settings.route) }) }
-            composable(Screen.Settings.route) { SettingsScreen(onBack = { navController.popBackStack() }) }
+            composable(Screen.Settings.route) { SettingsScreen(onBack = { navController.popBackStack() }, onAboutClick = { navController.navigate(Screen.About.route) }) }
+            composable(Screen.About.route) { AboutScreen(onBack = { navController.popBackStack() }) }
         }
     }
 }

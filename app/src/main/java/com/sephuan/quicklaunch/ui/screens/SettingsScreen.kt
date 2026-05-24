@@ -49,7 +49,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(onBack: () -> Unit) {
+fun SettingsScreen(onBack: () -> Unit, onAboutClick: (() -> Unit)? = null) {
     val app = LocalContext.current.applicationContext as App
     val settings = app.settingsManager
 
@@ -217,37 +217,13 @@ fun SettingsScreen(onBack: () -> Unit) {
             HorizontalDivider()
 
             // About
-            SettingsExpandHeader(stringResource(R.string.about), false) {} // non-collapsible header
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
-            ) {
-                Column(Modifier.padding(16.dp)) {
-                    val ctx = LocalContext.current
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        AppIcon(packageName = ctx.packageName, size = 48.dp)
-                        Spacer(Modifier.width(12.dp))
-                        Column {
-                            Text(stringResource(R.string.app_name), style = MaterialTheme.typography.titleMedium)
-                            Text("v1.0", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.secondary)
-                        }
-                    }
-                    Spacer(Modifier.height(12.dp))
-                    Text("一款高度可定制的应用快速启动工具", style = MaterialTheme.typography.bodyMedium)
-                    Spacer(Modifier.height(12.dp))
-                    HorizontalDivider()
-                    Spacer(Modifier.height(8.dp))
-                    Row(Modifier.fillMaxWidth().clickable {
-                        val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sephuan/QuickLaunch"))
-                        ctx.startActivity(i)
-                    }.padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text("GitHub", Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
-                        Text("github.com/Sephuan/QuickLaunch", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary)
-                    }
-                    Spacer(Modifier.height(4.dp))
-                    Text("© 2026 Sephuan · MIT License", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.secondary)
-                }
-            }
+            SettingsExpandHeader(stringResource(R.string.about), false) {}
+            ListItem(
+                headlineContent = { Text(stringResource(R.string.app_name)) },
+                supportingContent = { Text("v1.0 · MIT License") },
+                leadingContent = { Icon(Icons.Default.Info, contentDescription = null) },
+                modifier = Modifier.clickable { onAboutClick?.invoke() }
+            )
         }
     }
 
