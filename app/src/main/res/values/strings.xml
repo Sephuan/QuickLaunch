@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuickLaunch</string>
+    <string name="tile_label">灵动悬浮窗</string>
+
+    <string name="home">主页</string>
+    <string name="categories">分类</string>
+    <string name="app_library">应用库</string>
+    <string name="stats">统计</string>
+    <string name="settings">设置</string>
+
+    <string name="my_pins">我的收藏</string>
+    <string name="frequently_used">常用推荐</string>
+    <string name="pin_hint">长按应用库里的图标，选择“置顶”，这里就会出现你的快捷方式。</string>
+    <string name="frequent_hint">多用几次 App，这里就会自动出现。</string>
+
+    <string name="floating_search">全局悬浮搜索</string>
+    <string name="floating_enabled_desc">已开启，点击小球搜索</string>
+    <string name="floating_disabled_desc">点击开启，随时随地启动应用</string>
+
+    <string name="search_placeholder">搜应用/标签…</string>
+    <string name="search_apps">搜索应用…</string>
+    <string name="search_apps_alias_tags">搜索应用、别名或标签…</string>
+
+    <string name="edit_app">编辑应用</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="back">返回</string>
+    <string name="add">添加</string>
+    <string name="remove">移除</string>
+    <string name="remove_from_category">从分类移除</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="manage">管理</string>
+    <string name="new_item">新建</string>
+    <string name="rename_category">重命名分类</string>
+    <string name="edit_content">编辑内容</string>
+    <string name="move_up">上移</string>
+    <string name="move_down">下移</string>
+    <string name="close">关闭</string>
+
+    <string name="category_browse">分类浏览</string>
+    <string name="no_categories">暂无分类</string>
+    <string name="manage_categories">管理分类</string>
+    <string name="new_category">新建分类</string>
+    <string name="category_name">分类名称</string>
+    <string name="no_categories_hint">暂无分类，请去分类页面添加</string>
+    <string name="apps_count">%d 个应用</string>
+
+    <string name="usage_stats">使用频率统计</string>
+    <string name="no_stats">暂无数据，快去启动几个应用吧！</string>
+    <string name="last_launch">上次启动</string>
+    <string name="times">次</string>
+
+    <string name="pin_to_home">置顶到主页</string>
+    <string name="categories_label">所属分类</string>
+    <string name="custom_alias">自定义别名</string>
+    <string name="search_tags">搜索标签</string>
+    <string name="no_tags">暂无标签</string>
+    <string name="add_tag">添加标签</string>
+
+    <string name="language">语言</string>
+    <string name="language_auto">跟随系统</string>
+    <string name="language_zh">中文</string>
+    <string name="language_en">English</string>
+
+    <string name="theme_mode">主题模式</string>
+    <string name="theme_system">跟随系统</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_dark">深色</string>
+
+    <string name="color_source">取色来源</string>
+    <string name="color_monet">莫奈取色 (Material You)</string>
+    <string name="color_custom">自定义颜色</string>
+
+    <string name="custom_color_scheme">自定义颜色方案</string>
+    <string name="color_blue">深蓝色</string>
+    <string name="color_green">翠绿色</string>
+    <string name="color_orange">暖橙色</string>
+    <string name="color_rose">玫红色</string>
+    <string name="color_violet">紫罗兰</string>
+    <string name="color_teal">青碧色</string>
+    <string name="color_amber">琥珀色</string>
+    <string name="color_indigo">靛蓝色</string>
+
+    <string name="immersive_mode">沉浸模式</string>
+    <string name="immersive_desc">内容延伸到状态栏和导航栏下方</string>
+
+    <string name="auto_rotate_colors">自动轮换颜色</string>
+    <string name="auto_rotate_desc">每次启动 App 时随机切换自定义颜色方案</string>
+
+    <string name="quick_tiles">快捷磁贴</string>
+    <string name="tile_slot">磁贴 %d</string>
+    <string name="tile_slot_empty">未设置</string>
+    <string name="configure_tile">配置磁贴</string>
+    <string name="select_app">选择应用</string>
+    <string name="select_icon">选择图标</string>
+    <string name="clear_tile">清除</string>
+    <string name="add_tile">添加磁贴</string>
+    <string name="tap_to_configure">点击配置</string>
+
+    <string name="about">关于</string>
+    <string name="version">版本</string>
+
+    <string name="edit_app_title">编辑: %s</string>
+    <string name="edit_category_title">编辑: %s</string>
+</resources>
