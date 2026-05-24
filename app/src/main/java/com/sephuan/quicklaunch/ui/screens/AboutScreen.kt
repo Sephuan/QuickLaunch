@@ -62,7 +62,7 @@ fun AboutScreen(onBack: () -> Unit) {
             Spacer(Modifier.height(12.dp))
 
             Text(
-                "一款高度可定制的应用快速启动工具",
+                stringResource(R.string.about_desc),
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurface
@@ -71,7 +71,7 @@ fun AboutScreen(onBack: () -> Unit) {
             Spacer(Modifier.height(8.dp))
 
             Text(
-                "聚合搜索 · 分类管理 · 悬浮窗 · 快捷磁贴 · 通知栏搜索",
+                stringResource(R.string.about_tagline),
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary
@@ -92,8 +92,8 @@ fun AboutScreen(onBack: () -> Unit) {
                 Column(Modifier.padding(4.dp)) {
                     AboutLinkItem(
                         icon = Icons.Default.Language,
-                        title = "GitHub",
-                        subtitle = "github.com/Sephuan/QuickLaunch",
+                        title = stringResource(R.string.about_github),
+                        subtitle = stringResource(R.string.about_repo_url),
                         onClick = {
                             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sephuan/QuickLaunch")))
                         }
@@ -101,8 +101,8 @@ fun AboutScreen(onBack: () -> Unit) {
                     HorizontalDivider(Modifier.padding(horizontal = 16.dp))
                     AboutLinkItem(
                         icon = Icons.Default.OpenInBrowser,
-                        title = "个人主页",
-                        subtitle = "github.com/Sephuan",
+                        title = stringResource(R.string.about_homepage),
+                        subtitle = stringResource(R.string.about_homepage_url),
                         onClick = {
                             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sephuan")))
                         }
@@ -110,8 +110,8 @@ fun AboutScreen(onBack: () -> Unit) {
                     HorizontalDivider(Modifier.padding(horizontal = 16.dp))
                     AboutLinkItem(
                         icon = Icons.Default.Star,
-                        title = "Star & Fork",
-                        subtitle = "如果觉得好用，欢迎点个 Star ⭐",
+                        title = stringResource(R.string.about_star),
+                        subtitle = stringResource(R.string.about_star_desc),
                         onClick = {
                             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sephuan/QuickLaunch")))
                         }

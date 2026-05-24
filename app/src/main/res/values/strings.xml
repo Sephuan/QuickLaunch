@@ -100,6 +100,15 @@
     <string name="add_tile">添加磁贴</string>
     <string name="tap_to_configure">点击配置</string>
 
+    <string name="about_desc">一款高度可定制的应用快速启动工具</string>
+    <string name="about_tagline">聚合搜索 · 分类管理 · 悬浮窗 · 快捷磁贴 · 通知栏搜索</string>
+    <string name="about_github">GitHub</string>
+    <string name="about_repo_url">github.com/Sephuan/QuickLaunch</string>
+    <string name="about_homepage">个人主页</string>
+    <string name="about_homepage_url">github.com/Sephuan</string>
+    <string name="about_star">Star &amp; Fork</string>
+    <string name="about_star_desc">如果觉得好用，欢迎点个 Star ⭐</string>
+
     <string name="about">关于</string>
     <string name="version">版本</string>
 

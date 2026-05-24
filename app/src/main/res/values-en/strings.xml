@@ -100,6 +100,15 @@
     <string name="add_tile">Add Tile</string>
     <string name="tap_to_configure">Tap to configure</string>
 
+    <string name="about_desc">A highly customizable app launcher</string>
+    <string name="about_tagline">Smart Search · Categories · Floating Window · Quick Tiles · Notification Search</string>
+    <string name="about_github">GitHub</string>
+    <string name="about_repo_url">github.com/Sephuan/QuickLaunch</string>
+    <string name="about_homepage">Homepage</string>
+    <string name="about_homepage_url">github.com/Sephuan</string>
+    <string name="about_star">Star &amp; Fork</string>
+    <string name="about_star_desc">If you like it, give it a Star ⭐</string>
+
     <string name="about">About</string>
     <string name="version">Version</string>
 
