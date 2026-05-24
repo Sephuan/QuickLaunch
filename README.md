@@ -1,49 +1,89 @@
 # QuickLaunch
 
-**QuickLaunch** 是一款高度可定制的 Android 应用快速启动器，聚合搜索、分类管理、悬浮窗、快捷磁贴于一体。
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0-blue)](https://kotlinlang.org)
+[![Compose](https://img.shields.io/badge/Compose-Material3-purple)](https://developer.android.com/jetpack/compose)
+[![API](https://img.shields.io/badge/API-24%2B-brightgreen)](https://android-developers.googleblog.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/Sephuan/QuickLaunch)](https://github.com/Sephuan/QuickLaunch/releases/latest)
 
-![Kotlin](https://img.shields.io/badge/Kotlin-2.0-blue) ![Compose](https://img.shields.io/badge/Compose-Material3-purple) ![API](https://img.shields.io/badge/API-24%2B-brightgreen) ![License](https://img.shields.io/badge/License-MIT-yellow)
+**QuickLaunch** is a highly customizable Android app launcher. Search, categorize, pin, and launch any installed app from a floating bubble anywhere — plus Quick Settings tiles, notification-bar search, and deep Material You theming.
 
----
-
-## 功能
-
-| 模块 | 说明 |
-|------|------|
-| 智能搜索 | 支持应用名、包名、自定义别名、标签多维检索，评分排序 |
-| 分类管理 | 内置国内主流应用知识库，可新建/重命名/拖拽排序/管理应用归属 |
-| 悬浮搜索 | 全局悬浮球，可拖拽、自动吸附边缘半透明隐藏，点击展开搜索卡片 |
-| 快捷磁贴 | 最多 12 个自定义 QS 磁贴，直接快启指定应用，可选 14 种图标 |
-| 使用统计 | 按启动频率排行榜，支持长按编辑别名/标签/置顶 |
-| 设置中心 | 可折叠分组，语言切换（中/英），MD3 主题取色（莫奈/8 种自定义+自动轮换），沉浸模式 |
-| 通知栏搜索 | 下拉通知栏展开悬浮窗通知，输入关键词直接搜索并启动 |
+**QuickLaunch** 是一款高度可定制的 Android 应用快速启动器。聚合搜索、分类管理、悬浮窗、快捷磁贴、通知栏搜索于一体，全面拥抱 Material You。
 
 ---
 
-## 技术栈
+## 功能 / Features
 
-- **Kotlin 2.0** + **Jetpack Compose Material3**
-- Navigation Compose、LifecycleService、AppCompat
-- SharedPreferences + Gson 本地存储
-- WindowManager 悬浮窗、TileService 快捷磁贴、RemoteInput 通知栏搜索
-- Coil 图标懒加载
+| Feature | Description |
+|---------|-------------|
+| 🔍 **Smart Search** | Search by app name, package name, custom alias, or tags. Results ranked by relevance. |
+| 🏷️ **Alias & Tags** | Give apps custom names and multiple tags. Search a tag to find all matching apps. |
+| 📂 **Category Management** | Auto-categorize with built-in app database. Create, rename, drag-to-reorder, and manage app assignments. |
+| 👻 **Floating Bubble** | Global overlay bubble — drag, auto-snap to edge, auto-hide. Tap to expand a search card. |
+| 🧲 **Quick Settings Tiles** | Up to 12 customizable QS tiles. Assign any app + choose from 14 icons. Tap the tile to launch directly from notification shade. |
+| 🔔 **Notification Search** | Expand the foreground notification, type a keyword, and launch the best-matching app — all from the notification shade. |
+| 📊 **Usage Stats** | Launch count leaderboard with last-launch time. Long-press to edit alias/tags/pin. |
+| ⭐ **Pinned Favorites** | Pin favorite apps to the home screen grid. |
+| 🎨 **Theme System** | Monet (Material You) dynamic color or 8 custom color schemes (Blue, Green, Orange, Rose, Violet, Teal, Amber, Indigo). Auto-rotate mode. Light / Dark / System. |
+| 🌐 **i18n** | 中文 / English. Full string resource coverage. |
+| 🖥️ **Edge-to-Edge** | Immersive full-screen content behind status bar and navigation bar. |
+| ↩️ **Predictive Back** | Android 13+ back-to-home preview animation. |
+| ✨ **Transition Animations** | Slide-in/out and fade transitions between screens. |
 
 ---
 
-## 下载
+## 截图 / Screenshots
 
-[最新 Release](https://github.com/Sephuan/QuickLaunch/releases/latest)
+*(screenshots are in the release assets)*
 
 ---
 
-## 权限
+## 下载 / Download
 
-- 悬浮窗权限（显示在其他应用上层）
-- 获取应用列表（QUERY_ALL_PACKAGES）
-- 前台服务（保持悬浮窗存活）
+[📦 Latest Release (APK)](https://github.com/Sephuan/QuickLaunch/releases/latest)
+
+---
+
+## 技术栈 / Tech Stack
+
+- **Language**: Kotlin 2.0
+- **UI**: Jetpack Compose + Material3 (full color scheme, typography)
+- **Navigation**: Navigation Compose 2.8+ with animated transitions
+- **Architecture**: Application-scoped shared instances (repository, config, category, settings managers)
+- **Storage**: SharedPreferences + Gson (local key-value JSON)
+- **System APIs**:
+  - `WindowManager` + `LifecycleService` — global floating window
+  - `TileService` — 12× Quick Settings tiles
+  - `RemoteInput` / `Notification.Action` — notification-bar search
+  - `PackageManager` — installed app enumeration
+  - `AppCompatDelegate` — per-app language switching
+- **Icons**: 14 custom vector drawables for tiles, Coil for lazy app icon loading
+
+---
+
+## 权限 / Permissions
+
+| Permission | Purpose |
+|------------|---------|
+| `SYSTEM_ALERT_WINDOW` | Floating bubble overlay |
+| `QUERY_ALL_PACKAGES` | Enumerate installed apps |
+| `FOREGROUND_SERVICE` + `specialUse` | Keep floating service alive |
+
+---
+
+## 构建 / Build
+
+```bash
+git clone https://github.com/Sephuan/QuickLaunch.git
+cd QuickLaunch
+./gradlew assembleRelease
+# APK at: app/build/outputs/apk/release/app-release.apk
+```
+
+Requires JDK 17+ and Android SDK 35.
 
 ---
 
 ## License
 
-MIT © 2026 Sephuan
+MIT © 2026 [Sephuan](https://github.com/Sephuan)
